@@ -1,4 +1,4 @@
-export const quests = [
+export const questsJson = [
   {
     "quest": {
       "id": "QST-0001",

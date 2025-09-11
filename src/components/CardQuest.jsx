@@ -2,9 +2,10 @@ import RewardsList from './RewardsList.jsx';
 import ObjectivesList from './ObjectivesList.jsx';
 
 
-function CardQuest(questJson){
+function CardQuest(questJson) {
+    console.log('the quest json', questJson);
 
-    const {id, title, description, isActive, levelRequirement, rewards, objectives, location} = questJson.questJson.quest;
+    const { id, title, description, isActive, levelRequirement, rewards, objectives, location } = questJson.questJson.quest;
 
     const value = parseInt(id.split('-')[1]);
 
@@ -30,7 +31,7 @@ function CardQuest(questJson){
     };
 
     const CARD_DESCR_STYLES = {
-        textAlign: 'center',   
+        textAlign: 'center',
         color: 'rgba(255, 255, 255, 1)',
         zIndex: 2,
         position: 'relative',
@@ -42,7 +43,7 @@ function CardQuest(questJson){
         width: '20px',
         height: '20px',
         borderRadius: '999px',
-        margin : '5px',
+        margin: '5px',
         position: 'relative',
         zIndex: '2'
     };
@@ -52,7 +53,7 @@ function CardQuest(questJson){
         width: '20px',
         height: '20px',
         borderRadius: '999px',
-        margin : '5px',
+        margin: '5px',
         position: 'relative',
         zIndex: '2'
     };
@@ -67,10 +68,10 @@ function CardQuest(questJson){
     };
 
     const CARD_OBJECTIVES_STYLES = {
-        position:'relative',
-        zIndex:'2',
+        position: 'relative',
+        zIndex: '2',
         border: '1px solid rgba(172, 166, 67, 1)',
-        borderRadius:'4px',
+        borderRadius: '4px',
         width: '250px',
         height: '220px',
         top: '-78px',
@@ -84,24 +85,27 @@ function CardQuest(questJson){
         width: '550px',
         height: '60px',
         position: 'relative',
-        top:'-330px',
+        top: '-330px',
         zIndex: '2',
         margin: '20px'
     };
 
-    return(
-        <div className="CardQuest" style={CARD_STYLES}>
+    return (
+        <div className="CardQuest" style={CARD_STYLES} onClick={() => {
+            const questModified = questJson.questJson.quest;
+            questModified.isActive = !(questModified.isActive);
+            questJson.questHandleClick(questModified);
+        }}>
             <div style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.6)',
                 width: '100%',
                 height: '100%',
                 position: 'absolute',
                 zIndex: 1
-                
             }}></div>
 
 
-            <div style={(isActive) ? (CARD_IS_ACTIVE_STYLES) : (CARD_IS_NOT_ACTIVE_STYLES)}/>
+            <div style={(isActive) ? (CARD_IS_ACTIVE_STYLES) : (CARD_IS_NOT_ACTIVE_STYLES)} />
 
             <h2 style={CARD_TITLE_STYLES}>{title}</h2>
             <p style={CARD_DESCR_STYLES}><i>{description}</i></p>
@@ -110,35 +114,31 @@ function CardQuest(questJson){
 
 
             <div style={CARD_OBJECTIVES_STYLES}>
-                <div style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'rgba(0,0,0,.5)', zIndex:'1'}}/>
-                <div style={{position:'relative', zIndex: 2}}>
-                    <p style={{textAlign:'center', color:'#FFC60B', position: 'relative', top:'-15px', fontSize:'18px'}}>Objectives</p>
-                    <div style={{position:'relative', top:'-35px'}}>
-                        {objectives.map( (objective) => {
+                <div style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,.5)', zIndex: '1' }} />
+                <div style={{ position: 'relative', zIndex: 2 }}>
+                    <p style={{ textAlign: 'center', color: '#FFC60B', position: 'relative', top: '-15px', fontSize: '18px' }}>Objectives</p>
+                    <div style={{ position: 'relative', top: '-35px' }}>
+                        {objectives.map((objective) => {
                             return <ObjectivesList key={objective.id} objectivesJson={objective}></ObjectivesList>
                         })}
-                        
+
                     </div>
                 </div>
             </div>
 
 
-            <div style={{position:'relative', top: '-319px', left: '320px', width: '250px', height: '220px', zIndex:'2'}}> 
+            <div style={{ position: 'relative', top: '-319px', left: '320px', width: '250px', height: '220px', zIndex: '2' }}>
                 {/* Mejora esto aprendiendo a usar react createPortal(), de momento con el div funciona pero no es una solución elegante */}
-                <RewardsList rewards={rewards}></RewardsList>            
+                <RewardsList rewards={rewards}></RewardsList>
             </div>
 
 
             <div style={LOCATION_CONTAINER_STYLES}> {/* Convertirlo a componente!! */}
-                <div style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'rgba(0,0,0,.5)', zIndex:'1'}}/>
-                <p style={{color:'#FFC60B', fontSize:'18px', textAlign: 'center', position: 'relative', top:'-20px', zIndex:'2'}}>Location</p>
-                <p style={{color:'rgb(255,255,255)', textAlign:'center', position:'relative', top:'-35px', zIndex:'2'}}>{location.zone}</p>
+                <div style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,.5)', zIndex: '1' }} />
+                <p style={{ color: '#FFC60B', fontSize: '18px', textAlign: 'center', position: 'relative', top: '-20px', zIndex: '2' }}>Location</p>
+                <p style={{ color: 'rgb(255,255,255)', textAlign: 'center', position: 'relative', top: '-35px', zIndex: '2' }}>{location.zone}</p>
 
             </div>
-
-            {/*
-            <p>Objectives: {objectives.map((item) => {return item.description})}</p>
-            <p>Location: {location.zone} in coordinates: X:{location.coordinates.x}, Y:{location.coordinates.y}</p> */}
         </div>
     );
 }
