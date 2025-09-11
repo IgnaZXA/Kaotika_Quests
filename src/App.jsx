@@ -1,14 +1,16 @@
 import { quests } from './data/quests.js';
 import CardQuest from './components/CardQuest.jsx';
 
+
 import './App.css';
 
 function App() {
 
   return (
     <>
-      <CardQuest questJson={quests[0]}/>
-      <CardQuest questJson={quests[1]}/>
+      {quests.map((quest) => {
+        return (<CardQuest key={quest.quest.id} questJson={quest}></CardQuest>);
+      })}
 
     </>
   )

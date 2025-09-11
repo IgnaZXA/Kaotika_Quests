@@ -1,12 +1,11 @@
 @font-face {
   font-family: 'Kaotika';
-  src: url('../fonts/KochAltschrift.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  src: url('/src/assets/fonts/KochAltschrift.ttf') format('truetype');
 }
 
 body {
   font-family: "Kaotika", cursive;
-  /* background-color: rgb(41, 41, 41); */
-  background: url('./src/assets/images/imag_1.jpg');
+  background-color: rgb(41, 41, 41);
 }
 
 

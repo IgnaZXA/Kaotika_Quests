@@ -1,0 +1,6 @@
+.whiteBullet{
+  color: rgb(255, 255, 255);
+  position: relative;
+  display: flexbox;
+  height: 25px;
+}
