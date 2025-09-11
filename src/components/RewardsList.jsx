@@ -9,8 +9,6 @@ function RewardsList(rewards) {
         // border: '1px solid #FFC60B',
         width: '250px',
         height: '220px',
-        top: '-80px',
-        left: '50%',
     }
 
     const REWARDS_ITEMS_CONTAINER_STYLES = {

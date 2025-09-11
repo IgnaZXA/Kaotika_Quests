@@ -1,4 +1,5 @@
 import RewardsList from './RewardsList.jsx';
+import ObjectivesList from './ObjectivesList.jsx';
 
 
 function CardQuest(questJson){
@@ -57,12 +58,24 @@ function CardQuest(questJson){
     };
 
     const CARD_LVL_REQ_STYLES = {
+        width: '115px',
         color: 'rgba(121, 109, 3, 1)',
         position: 'relative',
         top: '-130px',
         left: '83%',
         zIndex: '2',
     };
+
+    const CARD_OBJECTIVES_STYLES = {
+        position:'relative',
+        zIndex:'2',
+        border: '1px solid rgba(172, 166, 67, 1)',
+        width: '250px',
+        height: '220px',
+        top: '-78px',
+        margin: '20px'
+
+    }
 
     return(
         <div className="CardQuest" style={CARD_STYLES}>
@@ -83,14 +96,27 @@ function CardQuest(questJson){
             <p style={CARD_LVL_REQ_STYLES}><i>Level Required: {levelRequirement}</i></p>
 
 
-            <div style={{position:'relative', zIndex:'2'}}> 
+
+            <div style={CARD_OBJECTIVES_STYLES}>
+                <div style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'rgba(0,0,0,.5)', zIndex:'1'}}/>
+                <div style={{position:'relative', zIndex: 2}}>
+                    <p style={{textAlign:'center', color:'#FFC60B', position: 'relative', top:'-15px', fontSize:'18px'}}>Objectives</p>
+                    <div style={{position:'relative', top:'-35px'}}>
+                        {objectives.map( (objective) => {
+                            return <ObjectivesList key={objective.id} objectivesJson={objective}></ObjectivesList>
+                        })}
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div className="classss" style={{position:'relative', top: '-319px', left: '320px', width: '250px', height: '220px', zIndex:'2'}}> 
                 {/* Mejora esto aprendiendo a usar react createPortal(), de momento con el div funciona pero no es una solución elegante */}
                 <RewardsList rewards={rewards}></RewardsList>            
             </div>
 
-            {/* <div>
-                <p>Rewards: {rewards.gold} {rewards.experience} {rewards.items.map((item) => {return item.name})}</p>
-            </div>
+            {/*
             <p>Objectives: {objectives.map((item) => {return item.description})}</p>
             <p>Location: {location.zone} in coordinates: X:{location.coordinates.x}, Y:{location.coordinates.y}</p> */}
         </div>
