@@ -77,6 +77,16 @@ function CardQuest(questJson){
 
     }
 
+    const LOCATION_CONTAINER_STYLES = {
+        border: '1px solid rgba(172, 166, 67, 1)',
+        width: '550px',
+        height: '60px',
+        position: 'relative',
+        top:'-330px',
+        zIndex: '2',
+        margin: '20px'
+    };
+
     return(
         <div className="CardQuest" style={CARD_STYLES}>
             <div style={{
@@ -111,9 +121,17 @@ function CardQuest(questJson){
             </div>
 
 
-            <div className="classss" style={{position:'relative', top: '-319px', left: '320px', width: '250px', height: '220px', zIndex:'2'}}> 
+            <div style={{position:'relative', top: '-319px', left: '320px', width: '250px', height: '220px', zIndex:'2'}}> 
                 {/* Mejora esto aprendiendo a usar react createPortal(), de momento con el div funciona pero no es una solución elegante */}
                 <RewardsList rewards={rewards}></RewardsList>            
+            </div>
+
+
+            <div style={LOCATION_CONTAINER_STYLES}> {/* Convertirlo a componente!! */}
+                <div style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'rgba(0,0,0,.5)', zIndex:'1'}}/>
+                <p style={{color:'#FFC60B', fontSize:'18px', textAlign: 'center', position: 'relative', top:'-20px', zIndex:'2'}}>Location</p>
+                <p style={{color:'rgb(255,255,255)', textAlign:'center', position:'relative', top:'-35px', zIndex:'2'}}>{location.zone}</p>
+
             </div>
 
             {/*

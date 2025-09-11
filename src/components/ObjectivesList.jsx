@@ -14,7 +14,7 @@ function ObjectivesList(objectivesJson){
 
     return (
         <div style={{display:'inline'}}>
-            {(completed) ? (<input type="checkbox" disabled checked/>) : (<input type="checkbox" disabled/>)}
+            {(completed) ? (<input type="checkbox" style={{backgroundColor: 'rgba(53, 153, 50, 1)', accentColor: '#0f0'}} disabled checked/>) : (<input type="checkbox" disabled/>)}
             <p style={OBJECTIVE_DESC_STYLES}>{description}</p>
             <br/>
 

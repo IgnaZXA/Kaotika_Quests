@@ -1,4 +1,5 @@
 import '../styles/RewardsList.css';
+import ItemComponent from './ItemComponent.jsx';
 
 function RewardsList(rewards) {
     const {gold, experience, items} = rewards.rewards;
@@ -39,7 +40,9 @@ function RewardsList(rewards) {
 
                     <li className="whiteBullet">Items:</li>
                 </ul>
-                <div style={REWARDS_ITEMS_CONTAINER_STYLES}></div>
+                <div style={REWARDS_ITEMS_CONTAINER_STYLES}>
+                    {items.map((item) => {return <ItemComponent key={item.id} itemJson={item}/>})}
+                </div>
             </div>
         
         </>
