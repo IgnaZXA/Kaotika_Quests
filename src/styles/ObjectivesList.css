@@ -1,0 +1,20 @@
+
+input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    appearance: none;
+    background-color: rgb(150, 128, 30);
+    border-radius: 2px;
+    position: relative;
+    top: 4px;
+    border: 1px solid rgb(216, 180, 17);
+}
+
+input[type="checkbox"]:checked{
+    width: 14px;
+    height: 14px;
+    background-color: #008000;
+    border: 1px solid #00ff00;
+
+
+}

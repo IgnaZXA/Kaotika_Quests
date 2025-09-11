@@ -7,6 +7,7 @@ function RewardsList(rewards) {
     const REWARDS_CONTAINER_STYLES = {
         position: 'relative',
         border: '1px solid rgba(172, 166, 67, 1)',
+        borderRadius: '4px',
         // border: '1px solid #FFC60B',
         width: '250px',
         height: '220px',
@@ -14,6 +15,7 @@ function RewardsList(rewards) {
 
     const REWARDS_ITEMS_CONTAINER_STYLES = {
         border: '1px solid rgba(172, 166, 67, 1)',
+        borderRadius: '4px',
         // border: '1px solid #FFC60B',
         margin: '20px',
         height: '100px',

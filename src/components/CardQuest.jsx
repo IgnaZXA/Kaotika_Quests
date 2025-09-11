@@ -70,6 +70,7 @@ function CardQuest(questJson){
         position:'relative',
         zIndex:'2',
         border: '1px solid rgba(172, 166, 67, 1)',
+        borderRadius:'4px',
         width: '250px',
         height: '220px',
         top: '-78px',
@@ -79,6 +80,7 @@ function CardQuest(questJson){
 
     const LOCATION_CONTAINER_STYLES = {
         border: '1px solid rgba(172, 166, 67, 1)',
+        borderRadius: '4px',
         width: '550px',
         height: '60px',
         position: 'relative',
