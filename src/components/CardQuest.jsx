@@ -8,7 +8,7 @@ function CardQuest({ questJson, questHandleClick }) {
     const value = parseInt(id.split('-')[1]);
 
     const CARD_STYLES = {
-        background: `url(src/assets/images/imag_${value}.jpg)`,
+        backgroundImage: `url(src/assets/images/imag_${value}.jpg)`,
         backgroundPosition: 'center',
         backgroundSize: '100% 100%',
         border: '2px solid rgba(87, 84, 34, 1)',
