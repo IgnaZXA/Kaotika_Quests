@@ -1,16 +1,26 @@
 import RewardsList from './RewardsList.jsx';
 import ObjectivesList from './ObjectivesList.jsx';
 import imag_1 from '../assets/images/imag_1.jpg';
+import imag_2 from '../assets/images/imag_2.jpg';
+import imag_3 from '../assets/images/imag_3.jpg';
+import imag_4 from '../assets/images/imag_4.jpg';
+import imag_5 from '../assets/images/imag_5.jpg';
+import imag_6 from '../assets/images/imag_6.jpg';
+import imag_7 from '../assets/images/imag_7.jpg';
+import imag_8 from '../assets/images/imag_8.jpg';
+
 
 
 function CardQuest({ questJson, questHandleClick }) {
     const { id, title, description, isActive, levelRequirement, rewards, objectives, location } = questJson.quest;
 
+    const imag_arr = [imag_1, imag_2, imag_3, imag_4, imag_5, imag_6, imag_7, imag_8];
+
     const value = parseInt(id.split('-')[1]);
 
     const CARD_STYLES = {
         // backgroundImage: `url(src/assets/images/imag_${value}.jpg)`,
-        backgroundImage: `url(${imag_1})`,
+        backgroundImage: `url(${imag_arr[value - 1]})`,
         backgroundPosition: 'center',
         backgroundSize: '100% 100%',
         border: '2px solid rgba(87, 84, 34, 1)',
