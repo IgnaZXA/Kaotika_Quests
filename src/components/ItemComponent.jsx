@@ -13,12 +13,14 @@ function ItemComponent(itemJson) {
   typeColorPalette['consumable'] = 'rgba(219, 156, 20, 1)';
   typeColorPalette['quest_item'] = 'rgba(255, 0, 0, 1)';
   typeColorPalette['scroll'] = 'rgba(102, 255, 0, 1)';
-  typeColorPalette['dagger'] = 'rgba(0, 255, 0, 1)';
-  typeColorPalette['armor'] = 'rgba(255, 0, 170, 1)';
+  typeColorPalette['dagger'] = 'rgba(255, 0, 157, 1)';
+  typeColorPalette['armor'] = 'rgba(0, 255, 200, 1)';
   typeColorPalette['artifact'] = 'rgba(238, 255, 0, 1)';
   typeColorPalette['amulet'] = 'rgba(0, 140, 255, 1)';
   typeColorPalette['dagger'] = 'rgba(25, 0, 255, 1)';
   typeColorPalette['dagger'] = 'rgba(153, 0, 255, 1)';
+  typeColorPalette['helm'] = 'rgba(0, 255, 242, 1)';
+  typeColorPalette['weapon'] = 'rgba(0, 255, 115, 1)';
 
 
   return (
