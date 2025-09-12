@@ -18,7 +18,6 @@ function App() {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', }}>
       {quests.map((quest) => {
-        console.log(quest);
         return (<CardQuest key={quest.quest.id} questJson={quest} questHandleClick={questHandleClick}></CardQuest>);
       })}
     </div>
