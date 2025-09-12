@@ -2,10 +2,8 @@ import RewardsList from './RewardsList.jsx';
 import ObjectivesList from './ObjectivesList.jsx';
 
 
-function CardQuest(questJson) {
-    console.log('the quest json', questJson);
-
-    const { id, title, description, isActive, levelRequirement, rewards, objectives, location } = questJson.questJson.quest;
+function CardQuest({ questJson, questHandleClick }) {
+    const { id, title, description, isActive, levelRequirement, rewards, objectives, location } = questJson.quest;
 
     const value = parseInt(id.split('-')[1]);
 
@@ -67,6 +65,8 @@ function CardQuest(questJson) {
         zIndex: '2',
     };
 
+
+
     const CARD_OBJECTIVES_STYLES = {
         position: 'relative',
         zIndex: '2',
@@ -92,9 +92,9 @@ function CardQuest(questJson) {
 
     return (
         <div className="CardQuest" style={CARD_STYLES} onClick={() => {
-            const questModified = questJson.questJson.quest;
+            const questModified = questJson.quest;
             questModified.isActive = !(questModified.isActive);
-            questJson.questHandleClick(questModified);
+            questHandleClick(questModified);
         }}>
             <div style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.6)',

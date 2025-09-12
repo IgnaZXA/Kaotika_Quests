@@ -4,23 +4,21 @@ import { useState } from 'react';
 import './App.css';
 
 
-
 function App() {
 
   const [quests, setQuests] = useState(questsJson);
 
 
   const questHandleClick = (questModified) => {
-    console.log(quests);
-
-    setQuests([...quests, [questModified]]);
-    console.log(quests);
-
+    setQuests(
+      quests.map((quest) => { return ((quest.id === questModified.id) ? (questModified) : (quest)) })
+    );
   }
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', }}>
       {quests.map((quest) => {
+        console.log(quest);
         return (<CardQuest key={quest.quest.id} questJson={quest} questHandleClick={questHandleClick}></CardQuest>);
       })}
     </div>
