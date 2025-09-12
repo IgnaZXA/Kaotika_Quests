@@ -1,5 +1,6 @@
 import RewardsList from './RewardsList.jsx';
 import ObjectivesList from './ObjectivesList.jsx';
+import imag_1 from '../assets/images/imag_1.jpg';
 
 
 function CardQuest({ questJson, questHandleClick }) {
@@ -8,7 +9,8 @@ function CardQuest({ questJson, questHandleClick }) {
     const value = parseInt(id.split('-')[1]);
 
     const CARD_STYLES = {
-        backgroundImage: `url(src/assets/images/imag_${value}.jpg)`,
+        // backgroundImage: `url(src/assets/images/imag_${value}.jpg)`,
+        backgroundImage: `url(${imag_1})`,
         backgroundPosition: 'center',
         backgroundSize: '100% 100%',
         border: '2px solid rgba(87, 84, 34, 1)',
